@@ -14,7 +14,7 @@ public class CollectionContainsAll implements Matcher<Collection<?>> {
 	}
 	
 	public static Matcher<Collection<?>> doesNotContainAll(Collection<?> contained) {
-		return not(containsAll(contained));
+		return INSTANCE.not(containsAll(contained));
 	}
 	
 	public Result match(Collection<?> actual) {

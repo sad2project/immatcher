@@ -20,7 +20,7 @@ public class CollectionsMatchers {
 	 * A {@code Matcher} that tests that the {@code Collection} under
 	 * test is not empty.
 	 */
-	public static Matcher<Collection<?>> isNotEmpty = invert(isEmpty, "was not empty");
+	public static Matcher<Collection<?>> isNotEmpty = INSTANCE.invert(isEmpty, "was not empty");
 	
 	/**
 	 * Returns a {@code Matcher} that tests that the {@code Collection} under
@@ -40,7 +40,7 @@ public class CollectionsMatchers {
 	 * {@code Collection}
 	 */
 	public static Matcher<Collection<?>> doesNotContain(Object object){
-		return not(contains(object));
+		return INSTANCE.not(contains(object));
 	}
 	
 	/**
@@ -64,7 +64,7 @@ public class CollectionsMatchers {
 	 * {@code Collection} are not in the {@code Collection} under test
 	 */
 	public static Matcher<Collection<?>> doesNotContainAll(Collection<?> contained) {
-		return not(containsAll(contained));
+		return INSTANCE.not(containsAll(contained));
 	}
 	
 	/**

@@ -12,7 +12,7 @@ public class IterableHasSizeOf implements Matcher<Iterable<?>> {
 	}
 	
 	public static Matcher<Iterable<?>> doesNotHaveSizeOf(int size) {
-		return invert(hasSizeOf(size), "did not have size of " + size);
+		return INSTANCE.invert(hasSizeOf(size), "did not have size of " + size);
 	}
 
 	private final int size;

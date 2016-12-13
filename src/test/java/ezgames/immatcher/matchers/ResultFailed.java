@@ -20,6 +20,8 @@ public class ResultFailed implements Matcher<Result>
       return actual.failed() ? result.pass() : result.fail();
    }
 
+   public Result notMatches(Result actual) { return actual.failed() ? result.fail() : result.pass(); }
+
    private ResultFailed(){}
 
    private static ResultFailed instance = null;

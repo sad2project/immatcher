@@ -16,5 +16,7 @@ public class MockMatcher implements Matcher<String>
       return new Result(this.fail, "passed", "failed");
    }
 
+   public Result notMatches(String actual) { return new Result(!this.fail, "passed", "failed"); }
+
    private final boolean fail;
 }

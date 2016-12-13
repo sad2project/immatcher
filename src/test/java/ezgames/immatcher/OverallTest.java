@@ -57,7 +57,7 @@ public class OverallTest
 
       Result result = matcher.match("");
 
-      assertThat(result, failedWithMessage("\tfailed\n\tpassed\n\tpassed"));
+      assertThat(result, failedWithMessage("\tAND(\n\tAND(\n\tfailed\n\tpassed)\n\tpassed)"));
    }
 
    @Test public void testAllOfFails2()
@@ -66,7 +66,7 @@ public class OverallTest
 
       Result result = matcher.match("");
 
-      assertThat(result, failedWithMessage("\tpassed\n\tfailed\n\tpassed"));
+      assertThat(result, failedWithMessage("\tAND(\n\tAND(\n\tpassed\n\tfailed)\n\tpassed)"));
    }
 
    @Test public void testAllOfFails3()
@@ -75,7 +75,7 @@ public class OverallTest
 
       Result result = matcher.match("");
 
-      assertThat(result, failedWithMessage("\tfailed\n\tpassed\n\tfailed"));
+      assertThat(result, failedWithMessage("\tAND(\n\tAND(\n\tfailed\n\tpassed)\n\tfailed)"));
    }
 
    @Test public void testAnyOfPasses1()
@@ -102,6 +102,6 @@ public class OverallTest
 
       Result result = matcher.match("");
 
-      assertThat(result, failedWithMessage("\tfailed\n\tfailed\n\tfailed"));
+      assertThat(result, failedWithMessage("\tOR(\n\tOR(\n\tfailed\n\tfailed)\n\tfailed)"));
    }
 }

@@ -24,6 +24,18 @@ public class ResultFailedWithMessage implements Matcher<Result>
          return new Result(true, expected, "was a passing Result" );
    }
 
+   public Result notMatches(Result actual) {
+      if(actual.failed())
+         return new Result(true, expected, "was a passing Result");
+      else
+      {
+         ResultBuilder result = ResultBuilder.withMessages(expected, "was a failing test with message \"" + actual.getActual() + "\"");
+         if(actual.getActual().equals(message))
+            return result.pass();
+         return result.fail();
+      }
+   }
+
    private ResultFailedWithMessage(String message)
    {
       this.message = message;
